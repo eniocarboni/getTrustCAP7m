@@ -1,6 +1,6 @@
 # /bin/bash
 
-wget -O - https://applicazioni.cnipa.gov.it/TSL/IT_TSL_signed.xml | perl -ne 'if (/<X509Certificate>/) {
+wget -O - https://applicazioni.cnipa.gov.it/TSL/_IT_TSL_signed.xml | perl -ne 'if (/<X509Certificate>/) {
 s/^\s+//; s/\s+$//;
 s/<\/*X509Certificate>//g;
 print "-----BEGIN CERTIFICATE-----\n";
@@ -10,7 +10,7 @@ $_=substr($_,64);
 }
 print $_."\n";
 print "-----END CERTIFICATE-----\n";
-}' >CA.pem
+}'
 
 
 
