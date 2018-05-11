@@ -4,6 +4,8 @@
 
 B<getTrustCAP7m.sh>
 
+B<getTrustCAP7m2.sh>
+
 =head1 DESCRIPTION
 
 Scarica i certificati Trust di DigitPA e li converte per l'utilizzo di openssl
@@ -11,6 +13,8 @@ Scarica i certificati Trust di DigitPA e li converte per l'utilizzo di openssl
 =head1 SYNOPSIS
 
 B<./getTrustCAP7m.sh> 
+
+B<./getTrustCAP7m2.sh> 
 
 
 =head1 COPYRIGHT
