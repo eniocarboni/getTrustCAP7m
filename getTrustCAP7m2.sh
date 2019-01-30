@@ -1,6 +1,7 @@
 #! /bin/bash
 
-XML_CERTS='https://applicazioni.cnipa.gov.it/TSL/_IT_TSL_signed.xml'
+# XML_CERTS='https://applicazioni.cnipa.gov.it/TSL/_IT_TSL_signed.xml'
+XML_CERTS='https://eidas.agid.gov.it/TL/TSL-IT.xml'
 wget --tries=2 -O Ca.xml ${XML_CERTS}
 for i in `grep '<X509Certificate' Ca.xml`; do
   echo -e "-----BEGIN CERTIFICATE-----"

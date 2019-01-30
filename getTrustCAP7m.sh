@@ -1,6 +1,8 @@
 # /bin/bash
 
-wget -O - https://applicazioni.cnipa.gov.it/TSL/_IT_TSL_signed.xml | perl -ne 'if (/<X509Certificate>/) {
+# XML_CERTS='https://applicazioni.cnipa.gov.it/TSL/_IT_TSL_signed.xml'
+XML_CERTS='https://eidas.agid.gov.it/TL/TSL-IT.xml'
+wget -O - ${XML_CERTS} | perl -ne 'if (/<X509Certificate>/) {
 s/^\s+//; s/\s+$//;
 s/<\/*X509Certificate>//g;
 print "-----BEGIN CERTIFICATE-----\n";
