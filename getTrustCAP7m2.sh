@@ -3,7 +3,8 @@
 # XML_CERTS='https://applicazioni.cnipa.gov.it/TSL/_IT_TSL_signed.xml'
 XML_CERTS='https://eidas.agid.gov.it/TL/TSL-IT.xml'
 wget --tries=2 -O Ca.xml ${XML_CERTS}
-for i in `grep '<X509Certificate' Ca.xml`; do
+# cnipa_signed.xml now is only one line long so we add e return value before start tag and after tag (X509Certificate)
+for i in `sed -e 's/<X509Certificate/\n<X509Certificate/g' -e s'#</X509Certificate>#</X509Certificate>\n#g' Ca.xml | grep '<X509Certificate'`; do
   echo -e "-----BEGIN CERTIFICATE-----"
   echo $i| sed -e 's/<\/*X509Certificate>//g'| openssl base64 -d -A| openssl base64
   echo -e "-----END CERTIFICATE-----"

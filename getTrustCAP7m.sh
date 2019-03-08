@@ -2,7 +2,8 @@
 
 # XML_CERTS='https://applicazioni.cnipa.gov.it/TSL/_IT_TSL_signed.xml'
 XML_CERTS='https://eidas.agid.gov.it/TL/TSL-IT.xml'
-wget -O - ${XML_CERTS} | perl -ne 'if (/<X509Certificate>/) {
+# cnipa_signed.xml now is only one line long so we add e return value before start tag and after tag (X509Certificate)
+wget -O - ${XML_CERTS} | sed -e 's/<X509Certificate/\n<X509Certificate/g' -e s'#</X509Certificate>#</X509Certificate>\n#g' | perl -ne 'if (/<X509Certificate>/) {
 s/^\s+//; s/\s+$//;
 s/<\/*X509Certificate>//g;
 print "-----BEGIN CERTIFICATE-----\n";
