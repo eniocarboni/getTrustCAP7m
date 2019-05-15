@@ -2,13 +2,19 @@
 
 =head1 NAME
 
-B<getTrustCAP7m.sh>
+B<getTrustCAP7m.sh> - versione bash con utilizzo del perl
 
-B<getTrustCAP7m2.sh>
+B<getTrustCAP7m2.sh> - versione bash
+
+B<getTrustCAP7m2-purephp.php> - versione php
+
+B<getTrustCAP7m2-simplexml.php> - versione php con l'utilizzo di simplexml
 
 =head1 DESCRIPTION
 
 Scarica i certificati Trust di DigitPA e li converte per l'utilizzo di openssl
+
+I quattro script sono equivalenti e possono essere utlizzati indifferentemente.
 
 =head1 SYNOPSIS
 
@@ -16,12 +22,15 @@ B<./getTrustCAP7m.sh>
 
 B<./getTrustCAP7m2.sh> 
 
+B<php getTrustCAP7m2-purephp.php>
+
+B<php getTrustCAP7m2-simplexml.php>
 
 =head1 COPYRIGHT
 
-      Copyright (c) 2016 Enio Carboni - Italy
+    Copyright (c) 2016 Enio Carboni - Italy
 
-      This file is part of getTrustCAP7m.
+    This file is part of getTrustCAP7m.
 
     getTrustCAP7m is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -35,8 +44,4 @@ B<./getTrustCAP7m2.sh>
 
     You should have received a copy of the GNU General Public License
     along with getTrustCAP7m.  If not, see <http://www.gnu.org/licenses/>.
-
-
-=head1 SUPPORT / WARRANTY
-
 
