@@ -6,8 +6,6 @@ if ($xmlDoc === FALSE) {
 	echo "Ci sono problemi a scaricare il file $XML_CERTS\n";
 	exit(1);
 }
-$xmlDoc2=preg_replace('/<X509Certificate/',"\n<X509Certificate",$xmlDoc);
-$xmlDoc2=preg_replace('/<\/X509Certificate>/',"</X509Certificate>\n",$xmlDoc2);
 preg_match_all ('/<X509Certificate>(.*)<\/X509Certificate>/',$xmlDoc,$matches);
 // $matches[0] contiene l'array con il match completo compreso del tag X509Certificate
 // $matches[1] contiene l'array con il match relativo alla sotto espressione (quella dentro le parentesi)
@@ -16,20 +14,6 @@ foreach($matches[1] as $key => $cert) {
         echo chunk_split($cert,64,PHP_EOL);
 	echo "-----END CERTIFICATE-----" . PHP_EOL;
 }
-/*
-foreach($xmlDoc->getDocNamespaces() as $strPrefix => $strNamespace) {
-  if(strlen($strPrefix)==0) {
-	  $strPrefix="p7m";
-	  $xmlDoc->registerXPathNamespace($strPrefix,$strNamespace);
-  }
-}
-foreach ($xmlDoc->xpath('//p7m:X509Certificate') as $cert) {
-	echo "-----BEGIN CERTIFICATE-----" . PHP_EOL;
-	echo chunk_split($cert,64,PHP_EOL);
-	echo "-----END CERTIFICATE-----" . PHP_EOL;
-
-}
- */
 /**
 *      Copyright (c) 2019 Enio Carboni - Italy
 *
